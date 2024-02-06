@@ -10,4 +10,9 @@ router.get('/', function(req, res, next) {
   res.render('comics', { title: 'Comics', comics : comics });
 });
 
+router.get('/new', function(req, res, next) {
+  
+  res.render('comics/new_comic', { title: 'New comic' });
+});
+
 module.exports = router;

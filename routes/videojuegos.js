@@ -12,6 +12,38 @@ router.get('/', async(req, res) => {
     res.render('videojuegos', { title: 'Videojuegos', videojuegos : await listaVideojuegos });
 });
 
+router.get('/new', function(req, res, next) {
+  
+  res.render('videojuegos/new_videojuego', { title: 'New videogame' });
+});
+
+router.post('/new', async(req, res) => {
+  let titulo = req.body.titulo;
+  let consola = req.body.consola;
+
+  insert(titulo, consola);
+
+  res.redirect('/videojuegos');
+});
+
+async function insert(titulo, consola) {
+  try {
+    const database = client.db('db_comics');
+    const collection = database.collection('videojuegos');
+
+    // Create a document to insert
+    var doc = {
+      titulo: titulo,
+      consola: consola,
+    };
+    // Insert the defined document into the "haiku" collection
+    var result = await collection.insertOne(doc);
+  } finally {
+    // Ensures that the client will close when you finish/error
+    //await client.close();
+  }
+}
+
 async function run() {
     try {
       const database = client.db('db_comics');

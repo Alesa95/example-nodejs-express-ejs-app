@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <form action="/videojuegos/new" method="post">
+        <label for="titulo">Título: </label>
+        <input type="text" id="titulo" name="titulo" required><br><br>
+        <label for="editorial">Consola: </label>
+        <input type="text" id="consola" name="consola" required><br><br>
+        <button type="submit">Guardar</button>
+    </form>
+  </body>
+</html>
