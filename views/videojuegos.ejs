@@ -20,6 +20,11 @@
           <tr>
             <td><%= videojuegos[i].titulo %></td>
             <td><%= videojuegos[i].consola %></td>
+            <td>
+              <a href="/videojuegos?id=<%=videojuegos[i]._id%>">
+                Ver en detalle
+              </a>
+            </td>
           </tr>
           <% } %>
         </tbody>
