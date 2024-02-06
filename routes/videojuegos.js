@@ -31,15 +31,12 @@ async function insert(titulo, consola) {
     const database = client.db('db_comics');
     const collection = database.collection('videojuegos');
 
-    // Create a document to insert
     var doc = {
       titulo: titulo,
       consola: consola,
     };
-    // Insert the defined document into the "haiku" collection
     var result = await collection.insertOne(doc);
   } finally {
-    // Ensures that the client will close when you finish/error
     //await client.close();
   }
 }
